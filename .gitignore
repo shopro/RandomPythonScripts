@@ -1,0 +1,7 @@
+
+
+# don't track vim swap files
+*.swp
+
+# don't track Dropbox stuff
+.DS-store
