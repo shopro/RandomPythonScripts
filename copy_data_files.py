@@ -34,8 +34,8 @@ else :
 SourceDirectory = os.path.realpath(SourceDirectory);
 DestinationDirectory = os.path.realpath(DestinationDirectory);
 
-print "Source files directory is: ", SourceDirectory
-print "Destination files directory is: ", DestinationDirectory
+print("Source files directory is: ", SourceDirectory)
+print("Destination files directory is: ", DestinationDirectory)
 
 DatFiles = os.listdir(SourceDirectory);
 
@@ -59,7 +59,7 @@ for f in DatFiles:
         os.path.basename(FullFileName))
 
   if fileregex is None:
-    print "File error: ", FullFileName
+    print("File error: ", FullFileName)
     continue;
 
   RatName = fileregex.group('name')
@@ -81,17 +81,17 @@ for f in DatFiles:
   if os.path.exists(destfile) :
     # compare destination file and source and create a new dir if different
     if filecmp.cmp(FullFileName,destfile) is not True :
-      print "Creating a new directory for", AnimalDirName
+      print("Creating a new directory for", AnimalDirName)
       AnimalDirName = AnimalDirName + '.2'
       DestinationFileName = os.path.join(DestinationDirectory, AnimalDirName, AnimalDirName + '.dat')
     else :
-      print "Ignoring existing", AnimalDirName
+      print("Ignoring existing", AnimalDirName)
       continue;
 
   DestinationFileName = os.path.join(DestinationDirectory, AnimalDirName, AnimalDirName + '.dat')
   os.makedirs(os.path.join(DestinationDirectory,AnimalDirName))
 
-  print AnimalDirName
+  print(AnimalDirName)
 
   shutil.copy2(FullFileName, DestinationFileName);
 
